@@ -74,6 +74,30 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+
+        <!-- PrimeFaces -->
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>13.0.0</version>
+            <classifier>jakarta</classifier>
+        </dependency>
+
+        <!-- PrimeFaces Extensions -->
+        <dependency>
+            <groupId>org.primefaces.extensions</groupId>
+            <artifactId>primefaces-extensions</artifactId>
+            <version>13.0.0</version>
+            <classifier>jakarta</classifier>
+        </dependency>
+
+        <!-- Themes -->
+        <dependency>
+            <groupId>org.primefaces.themes</groupId>
+            <artifactId>all-themes</artifactId>
+            <version>1.0.10</version>
+        </dependency>
+
     </dependencies>
 
     <build>
