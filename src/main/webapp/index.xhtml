@@ -3,10 +3,50 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="#{indexBean.flashcard.question}"/>
-    <h:outputLabel value="#{indexBean.flashcard.answer}"/>
-    <h:outputLabel value="#{indexBean.flashcard.category.description}"/>
-</f:view>
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <h:head>
+        <h:outputScript library="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" target="head" />
+    </h:head>
+    <h:form id="mainForm">
+        <p:panel header="My Flashcards"
+                 styleClass="ui-panel-center"
+                 style="width: 60%; margin: 0 auto;">
+            <p:dataTable value="#{indexBean.flashcardList}"
+                         var="flashcard"
+                         selection="#{indexBean.selectedFlashcard}"
+                         selectionMode="single"
+                         rowKey="#{flashcard.id}"
+                         rows="3"
+                         paginator="true" paginatorPosition="both"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records">
+                <p:column headerText="Id">
+                    <h:outputText value="#{flashcard.id}"/>
+                </p:column>
+                <p:column headerText="Question" width="500">
+                    <h:outputText value="#{flashcard.question}"/>
+                </p:column>
+                <p:column headerText="Action">
+                    <p:commandButton value="Show Answer"
+                                     action="#{indexBean.selectFlashcard(flashcard)}"
+                                     update="mainForm:flashcardDetails"/>
+                </p:column>
+            </p:dataTable>
+
+            <br/>
+
+            <!-- Details and answer form -->
+            <p:panel id="flashcardDetails"
+                     header="Answer : ">
+                <h:panelGroup>
+                    <h:outputText
+                            width="1000"
+                            value=" #{indexBean.selectedFlashcard.answer}"/>
+                </h:panelGroup>
+            </p:panel>
+        </p:panel>
+    </h:form>
+</h:body>
 </html>

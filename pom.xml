@@ -91,12 +91,11 @@
             <classifier>jakarta</classifier>
         </dependency>
 
-        <!-- Themes -->
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>all-themes</artifactId>
-            <version>1.0.10</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.primefaces.themes</groupId>-->
+<!--            <artifactId>omega</artifactId>-->
+<!--            <version>5.0.0</version>-->
+<!--        </dependency>-->
 
     </dependencies>
 
